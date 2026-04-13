@@ -1,0 +1,593 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noto Notepad – Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        /* ── HERO HEADER ── */
+        .hero {
+            background: linear-gradient(135deg, #6650A4 0%, #21005D 60%, #0f0f1a 100%);
+            padding: 60px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(208,188,255,0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 20%, rgba(102,80,164,0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D0BCFF, #6650A4);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 32px rgba(102,80,164,0.4);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            color: #D0BCFF;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(208,188,255,0.15);
+            border: 1px solid rgba(208,188,255,0.3);
+            color: #D0BCFF;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* ── MAIN CONTENT ── */
+        .container {
+            max-width: 780px;
+            margin: -30px auto 0;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── SUMMARY CARDS ROW ── */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .summary-card {
+            background: #1e1b2e;
+            border: 1px solid #2d2a3e;
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-2px);
+            border-color: #6650A4;
+        }
+
+        .summary-card .emoji {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .summary-card .label {
+            font-size: 0.78rem;
+            color: #9e8fc5;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-card .value {
+            font-size: 0.92rem;
+            color: #D0BCFF;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* ── SECTION CARDS ── */
+        .section {
+            background: #1e1b2e;
+            border: 1px solid #2d2a3e;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .section:hover {
+            border-color: #3d3560;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .icon-purple { background: rgba(102,80,164,0.25); }
+        .icon-blue   { background: rgba(59,130,246,0.2); }
+        .icon-green  { background: rgba(34,197,94,0.2); }
+        .icon-orange { background: rgba(249,115,22,0.2); }
+        .icon-red    { background: rgba(239,68,68,0.2); }
+        .icon-pink   { background: rgba(236,72,153,0.2); }
+        .icon-teal   { background: rgba(20,184,166,0.2); }
+        .icon-yellow { background: rgba(234,179,8,0.2); }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-number {
+            font-size: 0.75rem;
+            color: #6650A4;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .section p {
+            color: #b0a8c8;
+            font-size: 0.93rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── LISTS ── */
+        .item-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #16132a;
+            border: 1px solid #2d2a3e;
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            color: #c4bbd8;
+            line-height: 1.5;
+        }
+
+        .item-list li .li-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .item-list li strong {
+            color: #D0BCFF;
+            display: block;
+            margin-bottom: 2px;
+            font-size: 0.92rem;
+        }
+
+        /* ── HIGHLIGHT BOX ── */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102,80,164,0.2), rgba(33,0,93,0.3));
+            border: 1px solid rgba(102,80,164,0.4);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .highlight-box .hb-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .highlight-box p {
+            margin: 0 !important;
+            color: #D0BCFF !important;
+            font-size: 0.9rem !important;
+        }
+
+        /* ── CONTACT CARD ── */
+        .contact-card {
+            background: linear-gradient(135deg, #6650A4, #21005D);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .contact-card .contact-emoji {
+            font-size: 40px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .contact-card h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: #D0BCFF;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .email-btn:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #4a4560;
+            font-size: 0.8rem;
+            border-top: 1px solid #1e1b2e;
+        }
+
+        .footer span {
+            color: #6650A4;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 520px) {
+            .hero h1 { font-size: 1.6rem; }
+            .summary-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .summary-card { padding: 14px 10px; }
+            .summary-card .emoji { font-size: 22px; }
+            .section { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+    <div class="app-icon">📝</div>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Noto Notepad — Your private, secure note companion</p>
+    <div class="badge">📅 Effective Date: June 2025</div>
+</div>
+
+<!-- ── CONTAINER ── -->
+<div class="container">
+
+    <!-- Summary Row -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <span class="emoji">🔒</span>
+            <div class="label">Data Shared</div>
+            <div class="value">None</div>
+        </div>
+        <div class="summary-card">
+            <span class="emoji">📱</span>
+            <div class="label">Storage</div>
+            <div class="value">Local Only</div>
+        </div>
+        <div class="summary-card">
+            <span class="emoji">👤</span>
+            <div class="label">Account</div>
+            <div class="value">Not Required</div>
+        </div>
+    </div>
+
+    <!-- 1. Introduction -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-purple">👋</div>
+            <div>
+                <div class="section-number">Section 01</div>
+                <div class="section-title">Welcome to Noto Notepad</div>
+            </div>
+        </div>
+        <p>
+            Thank you for choosing <strong style="color:#D0BCFF">Noto Notepad</strong> — your smart, secure, and private note-taking companion. We are committed to protecting your privacy and being fully transparent about how we handle your information.
+        </p>
+        <p>
+            This Privacy Policy applies to the Noto Notepad mobile application and describes what data we collect (spoiler: almost nothing), how we use it, and your rights as a user.
+        </p>
+        <div class="highlight-box">
+            <span class="hb-icon">✅</span>
+            <p><strong>Simple promise:</strong> Your notes belong to you. We never read, sell, or share your personal data.</p>
+        </div>
+    </div>
+
+    <!-- 2. Information We Collect -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-blue">🔍</div>
+            <div>
+                <div class="section-number">Section 02</div>
+                <div class="section-title">Information We Collect</div>
+            </div>
+        </div>
+        <p>Noto Notepad is built with a <strong style="color:#D0BCFF">privacy-first</strong> approach. Here's exactly what we do and don't collect:</p>
+        <ul class="item-list">
+            <li>
+                <span class="li-icon">🚫</span>
+                <div><strong>No Personal Information</strong>We do not collect your name, email, phone number, or any personally identifiable information.</div>
+            </li>
+            <li>
+                <span class="li-icon">🚫</span>
+                <div><strong>No Note Content</strong>Your note content, images, and voice recordings are stored only on your device and never transmitted to our servers.</div>
+            </li>
+            <li>
+                <span class="li-icon">⚠️</span>
+                <div><strong>Crash Reports (Anonymous)</strong>We may collect anonymous crash reports via Firebase Crashlytics to help us fix bugs. These reports contain device type and OS version — never your notes or personal data.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 3. Data Storage -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-green">💾</div>
+            <div>
+                <div class="section-number">Section 03</div>
+                <div class="section-title">Data Storage & Security</div>
+            </div>
+        </div>
+        <p>All your data lives on <strong style="color:#D0BCFF">your device</strong>. We follow a strict local-first approach:</p>
+        <ul class="item-list">
+            <li>
+                <span class="li-icon">📱</span>
+                <div><strong>Local Storage Only</strong>Notes, images, tags, and settings are stored in your device's internal storage using a secure local database (Room/SQLite).</div>
+            </li>
+            <li>
+                <span class="li-icon">🔐</span>
+                <div><strong>Note Locking</strong>You can lock individual notes using a PIN or biometric authentication (fingerprint/face). Locked note content is never readable without authentication.</div>
+            </li>
+            <li>
+                <span class="li-icon">☁️</span>
+                <div><strong>No Cloud Upload</strong>We do not upload your notes to any server. Future optional cloud sync (if added) will be opt-in and clearly disclosed.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 4. Permissions -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-orange">🔑</div>
+            <div>
+                <div class="section-number">Section 04</div>
+                <div class="section-title">App Permissions</div>
+            </div>
+        </div>
+        <p>Noto Notepad requests only the permissions it needs to function. Here's what each permission is used for:</p>
+        <ul class="item-list">
+            <li>
+                <span class="li-icon">🎤</span>
+                <div><strong>Microphone</strong>Used only for the voice-to-text feature when you tap the Voice button. We never record audio in the background.</div>
+            </li>
+            <li>
+                <span class="li-icon">🖼️</span>
+                <div><strong>Storage / Media Access</strong>Required to attach images to your notes from your gallery. Images are copied to app-private storage.</div>
+            </li>
+            <li>
+                <span class="li-icon">🤚</span>
+                <div><strong>Biometric / Fingerprint</strong>Used only for note lock/unlock via fingerprint or face recognition. Biometric data never leaves your device.</div>
+            </li>
+            <li>
+                <span class="li-icon">🌐</span>
+                <div><strong>Internet</strong>Used for crash reporting (anonymous), in-app updates, and in-app review prompts. Never used to transmit note content.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 5. Third-Party Services -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-teal">🔗</div>
+            <div>
+                <div class="section-number">Section 05</div>
+                <div class="section-title">Third-Party Services</div>
+            </div>
+        </div>
+        <p>We use a minimal set of trusted third-party services to keep the app stable and up to date:</p>
+        <ul class="item-list">
+            <li>
+                <span class="li-icon">🔥</span>
+                <div>
+                    <strong>Firebase Crashlytics (Google)</strong>
+                    Collects anonymous crash reports to help us identify and fix bugs. Does not access note content.
+                    <br><a href="https://firebase.google.com/support/privacy" style="color:#9e8fc5;font-size:0.82rem;">firebase.google.com/support/privacy</a>
+                </div>
+            </li>
+            <li>
+                <span class="li-icon">🔄</span>
+                <div>
+                    <strong>Google Play In-App Update</strong>
+                    Checks for available app updates to keep you on the latest version.
+                </div>
+            </li>
+            <li>
+                <span class="li-icon">⭐</span>
+                <div>
+                    <strong>Google Play In-App Review</strong>
+                    May prompt you to rate the app after creating notes. This is handled entirely by Google Play.
+                </div>
+            </li>
+        </ul>
+        <div class="highlight-box">
+            <span class="hb-icon">ℹ️</span>
+            <p>These services operate under their own privacy policies. We do not control what data Google collects through their SDKs.</p>
+        </div>
+    </div>
+
+    <!-- 6. Children's Privacy -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-pink">👶</div>
+            <div>
+                <div class="section-number">Section 06</div>
+                <div class="section-title">Children's Privacy</div>
+            </div>
+        </div>
+        <p>
+            Noto Notepad is suitable for general audiences. We do <strong style="color:#D0BCFF">not knowingly collect</strong> any personal data from children under the age of 13.
+        </p>
+        <p>
+            Since we don't collect personal information from any user, there is no special risk to younger users. If you are a parent and have concerns, please contact us at the email below.
+        </p>
+    </div>
+
+    <!-- 7. Your Rights -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-yellow">⚖️</div>
+            <div>
+                <div class="section-number">Section 07</div>
+                <div class="section-title">Your Rights & Control</div>
+            </div>
+        </div>
+        <p>You have full control over your data:</p>
+        <ul class="item-list">
+            <li>
+                <span class="li-icon">🗑️</span>
+                <div><strong>Delete Your Data</strong>Uninstalling the app permanently deletes all notes, images, and settings from your device.</div>
+            </li>
+            <li>
+                <span class="li-icon">🚫</span>
+                <div><strong>Revoke Permissions</strong>You can revoke microphone, storage, or biometric permissions at any time from your device Settings → Apps → Noto Notepad → Permissions.</div>
+            </li>
+            <li>
+                <span class="li-icon">📤</span>
+                <div><strong>Export Your Notes</strong>Your notes are yours. You can copy or back them up at any time.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 8. Policy Updates -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon icon-red">📋</div>
+            <div>
+                <div class="section-number">Section 08</div>
+                <div class="section-title">Changes to This Policy</div>
+            </div>
+        </div>
+        <p>
+            We may update this Privacy Policy occasionally to reflect improvements to the app or changes in legal requirements. When we do:
+        </p>
+        <ul class="item-list">
+            <li>
+                <span class="li-icon">📅</span>
+                <div><strong>Effective Date Updated</strong>The date at the top of this page will be updated to reflect when changes were made.</div>
+            </li>
+            <li>
+                <span class="li-icon">🔔</span>
+                <div><strong>Significant Changes</strong>If we make significant changes that affect your privacy, we will notify you through an in-app message.</div>
+            </li>
+        </ul>
+        <div class="highlight-box">
+            <span class="hb-icon">💡</span>
+            <p>We recommend bookmarking this page and reviewing it periodically. Continued use of the app after changes means you accept the updated policy.</p>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+        <span class="contact-emoji">💌</span>
+        <h3>Have Questions? We're Here.</h3>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, don't hesitate to reach out.</p>
+        <a href="mailto:cyclushub@gmail.com" class="email-btn">
+            ✉️ cyclushub@gmail.com
+        </a>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>© 2025 <span>Noto Notepad</span> · All rights reserved · Made with ❤️ for note lovers</p>
+</div>
+
+</body>
+</html>
+```
